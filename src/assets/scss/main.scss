@@ -13,7 +13,6 @@
     color: #fff;
     border: 3px solid rgb(52, 11, 155);
     box-shadow: 1px 1px 10px rgb(52, 11, 155);
-    transition: .2s ease;
     &:hover {
         opacity: 0.9;
     }
@@ -21,6 +20,7 @@
         opacity: 0.8;
         width: 180px;
         height: 180px;
+        background-color: rgb(85, 11, 155);
     }
 }
 html {
