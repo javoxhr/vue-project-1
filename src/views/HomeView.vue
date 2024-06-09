@@ -24,7 +24,7 @@
           <div class="header-bottom">
             <div class="header-bottom-wrapper">
               <button class="header-bottom__menu"><img src="../assets/images/menu.svg" alt=""></button>
-              <router-link><img class="logo" src="../assets/images/logo.svg" alt=""></router-link>
+              <a href="#"><img class="logo" src="../assets/images/logo.svg" alt=""></a>
 
               <div class="search">
                 <input class="header-bottom__input" type="text">
