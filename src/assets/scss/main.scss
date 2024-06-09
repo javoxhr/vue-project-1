@@ -11,6 +11,7 @@
     cursor: pointer;
     background-color: blueviolet;
     color: #fff;
+    transition: all .1s ease;
     border: 3px solid rgb(52, 11, 155);
     box-shadow: 1px 1px 10px rgb(52, 11, 155);
     &:hover {
