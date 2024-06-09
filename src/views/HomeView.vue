@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h1>hello world</h1>
+  <div class="wrapper">
+    <h4 class="balance">0</h4>
+  <span class="monet">$</span>
   </div>
 </template>
 
