@@ -23,7 +23,7 @@
 
           <div class="header-bottom">
             <div class="header-bottom-wrapper">
-              <button class="header-bottom__menu"><img src="../assets/images/menu.svg" alt=""></button>
+              <button class="header-bottom__menu" @click="showFunc(), styleTwoCard = show ? 'none' : 'flex', styleHeight = show ? '400' : '365'"><img src="../assets/images/menu.svg" alt=""></button>
               <a href="#"><img class="logo" src="../assets/images/logo.svg" alt=""></a>
 
               <div class="search">
@@ -59,10 +59,75 @@
     <div class="hero">
       <div class="container">
         <div class="hero-wrapper">
-          <a href="#" class="main-hero-img"><img src="../assets/images/hero-img.jpg" alt=""></a>
-          <div class="two-product">
+
+          <div class="populyar-catigor" :style="{'display': show ? 'block' : 'none'}">
+            <div class="popular-catigor__wrapper">
+              <span class="populyar-catigor__item-title"><img src="../assets/images/toch-3-menu.png" alt="">Популярные категории</span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Компьютеры и оргтехника
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Электроника
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Бытовая техника
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Одежда для женщин
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Одежда для мужчин
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Все для детей
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Автотовары
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Красота и здоровье
+              </span>
+
+              <span class="populyar-catigor__item">
+                <img src="../assets/images/catigor-item-1.svg" alt="">
+                Спорт и развлечения
+              </span>
+            </div>
+          </div>
+          <a href="#" class="main-hero-img"><img src="../assets/images/hero-img.jpg" alt="" :style="{'height': styleHeight + 'px'}"></a>
+          <div class="two-product" :style="{'display': styleTwoCard}">
             <a href="#"><img src="../assets/images/two-products-one.jpg" alt=""></a>
             <a href="#"><img src="../assets/images/two-products-two.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buy-product">
+      <div class="container">
+        <div class="buy-product__wrapper">
+          <h1 class="buy-product__title">Успей купить</h1>
+          <div class="buy-product-cards-wrapper">
+            <AboutProductCard v-for="item in products" :key="item" :product="item"/>
+          </div>
+          <div class="all-products-btn-wrap">
+            <button class="all-products-btn">Все товары</button>
           </div>
         </div>
       </div>
@@ -71,11 +136,38 @@
 </template>
 
 <script>
+import AboutProductCard from '../components/AboutProductCard.vue'
 export default {
-
+  components: {AboutProductCard},
+  data() {
+    return {
+      baseUrl: 'https://api.escuelajs.co/api/v1',
+      displayStayle: 'none',
+      styleTwoCard: 'flex',
+      styleHeight: '365',
+      show: false,
+      products: [],
+    }
+  },
+  methods: {
+    showFunc() {
+      this.show = !this.show
+    },
+    getData() {
+      fetch('https://fakestoreapi.com/products')
+      .then((res)=> res.json())
+      .then((data)=> {
+        this.products = data
+        console.log(data)
+      })
+    }
+  },
+  mounted() {
+    this.getData()
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

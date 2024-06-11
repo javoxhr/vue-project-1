@@ -183,3 +183,223 @@ header {
         }
     }
 }
+
+.populyar-catigor {
+    width: 450px;
+    background-color: #fff;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.12);
+    &__item-title {
+        background: linear-gradient(96.78deg, #F64D4D -57.09%, #4D5EF6 101.17%);
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 10px 80px 10px 30px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #fff;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 10px 80px 10px 30px;
+        font-weight: 500;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
+.product-img {
+    width: 100px;
+    height: 110px;
+}
+
+.product-price {
+    font-weight: 500;
+    font-size: 18px;
+    color: red;
+    text-align: left;
+}
+
+.buy-product-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.about-product {
+    width: 100%;
+    max-width: 235px;
+    height: 260px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px #e4e2e2;
+    background-color: #fff;
+    &__cart-btn {
+        display: none;
+        button {
+          padding: 9px 57px;  
+          font-weight: 500;
+          font-size: 14px;
+          background: linear-gradient(96.78deg, #F64D4D -57.09%, #4D5EF6 101.17%);
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          transition: .2s ease;
+          margin-bottom: 0;
+          &:hover {
+            opacity: 0.9;
+          }
+          &:active {
+            opacity: 0.8;
+          }
+        }
+    }
+}
+
+.about-product:hover {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.35);
+    height: auto;
+    transition: 1s;
+    display: flex;
+    img {
+        width: 130px;
+        height: 140px;
+        transition: all .3s;
+        margin-right: 4px;
+    }
+    .about-product__cart-btn {
+        display: block;
+    }
+    .product-title {
+        white-space: wrap;
+        padding-bottom: 10px;
+    }
+    .product-text-wrapper {
+        margin-top: 0;
+    } 
+    .reting {
+        display: block;
+        span {
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+
+.product-title {
+    width: 100%;
+    max-width: 200px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.product-card {
+    margin-top: 30px;
+}
+
+.product-text-wrapper {
+    margin-left: 12px;
+    margin-top: 15px;
+}
+
+.buy-product {
+    &__wrapper {
+        margin-top: 30px;
+    }
+    &__title {
+        font-weight: 400;
+        font-size: 28px;
+    }
+}
+
+.all-products-btn {
+    padding: 14px 55px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    border: 1.5px solid #000;
+    background: none;
+    cursor: pointer;
+}
+
+.all-products-btn-wrap {
+    margin-top: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 12px;
+}
+
+.price-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 19px 0 4px;
+}
+
+.before-price {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 4px;
+    color: grey;
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: red;
+        display: block;
+        rotate: -8deg;
+        position: absolute;
+        top: 7px;
+    }
+}
+
+.product-card {
+    position: relative;
+}
+
+.sale {
+    padding: 1px 6px;
+    border: 1px solid red;
+    font-weight: 500;
+    font-size: 13px;
+    border-radius: 10px;
+    position: absolute;
+    top: 13px;
+    right: 18px;
+}
+
+.reting {
+    padding: 10px 0;
+    display: none;
+    span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.btn-back {
+    padding: 10px 20px;
+    background: linear-gradient(96.78deg, #F64D4D -57.09%, #4D5EF6 101.17%);
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.cart {
+    position: relative;
+}
