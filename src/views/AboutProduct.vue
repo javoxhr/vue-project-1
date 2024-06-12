@@ -1,8 +1,25 @@
 <template>
-  <div>
-    <div class="cart">
-        <div class="cart__wrapper">
-            <a href="/" class="btn-back">Назад</a>
+    <a href="/" class="btn-back">Назад</a>
+  <div class="card-main-wrapper">
+    <div class="card">
+        <div class="container">
+            <div class="card__wrapper">
+            <div class="card__img">
+                    <img :src="detail.image" :alt="detail.title">
+            </div>
+            <div class="card__text-wrapper">
+                <h1 class="card__title">{{ detail.title }}</h1>
+                <div class="card__price-wrapper">
+                    <h2 class="card__price">{{ detail.price }}$</h2>
+                    <h2 class="card-price-sale">{{ Math.round(detail.price * 1.5) }}$</h2>
+                </div>
+                <div class="card__rating">
+                    <h2>{{ detail.rating.rate }}</h2>
+                    <img src="../assets/images/star.svg" alt="">
+                    <h2>{{ detail.rating.count }} отзывов</h2>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
   </div>
@@ -19,7 +36,7 @@ export default {
     },
     methods: {
         getDetailProduct() {
-            fetch('https://fakestoreapi.com/products' + this.$route.params.id)
+            fetch('https://fakestoreapi.com/products/' + this.$route.params.id)
             .then((res)=> res.json())
             .then((data)=> {
                 this.detail = data
