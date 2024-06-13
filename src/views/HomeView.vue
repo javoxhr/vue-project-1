@@ -1,13 +1,17 @@
 <template>
   <div>
-    <div class="loader" :style="{'display': loading == true ? 'block' : 'none'}">
+    <loader :style="{ display: loading == true ? 'block' : 'none' }"></loader>
+    <div
+      class="loader"
+      :style="{ display: loading == true ? 'block' : 'none' }"
+    >
       <div class="load-wrap">
-         <span class="round"></span>
-         <span class="round"></span>
-         <span class="round"></span>
-         <span class="round"></span>
-         <span class="round"></span>
-         <span class="round"></span>
+        <span class="round"></span>
+        <span class="round"></span>
+        <span class="round"></span>
+        <span class="round"></span>
+        <span class="round"></span>
+        <span class="round"></span>
       </div>
     </div>
     <header>
@@ -63,7 +67,9 @@
               /></a>
 
               <div class="search">
-                <input class="header-bottom__input" type="text" />
+                <div class="input-search-wrap">
+                  <input class="header-bottom__input" type="text" />
+                </div>
                 <button class="header-bottom__search-btn">
                   Везде <img src="../assets/images/arrow-bottom.png" alt="" />
                 </button>
@@ -85,8 +91,10 @@
                   </div>
 
                   <div class="login__item">
-                    <img src="../assets/images/cart.png" alt="" />
-                    <h1>Корзина</h1>
+                    <button class="open-cart" @click="right = 0">
+                      <img src="../assets/images/cart.png" alt="" />
+                      <h1>Корзина</h1>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -176,7 +184,9 @@
     <div class="buy-product">
       <div class="container">
         <div class="buy-product__wrapper">
-          <h1 class="buy-product__title">Успей купить <span v-if="loading">loading</span></h1>
+          <h1 class="buy-product__title">
+            Успей купить <span v-if="loading">loading</span>
+          </h1>
           <div class="buy-product-cards-wrapper">
             <AboutProductCard
               v-for="item in products"
@@ -185,8 +195,21 @@
             />
           </div>
           <div class="all-products-btn-wrap">
-            <button class="all-products-btn">Все товары</button>
+            <div class="all-btn">
+              <button class="all-products-btn">Все товары</button>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart" :style="{'right': right + '%'}">
+      <div class="cart__wrapeer">
+        <div class="cart__header">
+          <h1>My order</h1>
+          <button class="cart-close" @click="right = -100">
+            <img src="../assets/images/cart.png" alt="">
+          </button>
         </div>
       </div>
     </div>
@@ -194,9 +217,13 @@
 </template>
 
 <script>
+
 import AboutProductCard from "../components/AboutProductCard.vue";
+// import Loader from "../components/Loader.vue";
+
 export default {
   components: { AboutProductCard },
+  // components: {Loader},
   data() {
     return {
       baseUrl: "https://api.escuelajs.co/api/v1",
@@ -206,6 +233,8 @@ export default {
       show: false,
       products: [],
       loading: true,
+      right: -100,
+      index: 0,
     };
   },
   methods: {
